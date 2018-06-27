@@ -93,19 +93,13 @@ var explode = function(){
     alert("Parabéns, você demonstrou que tem ótima memória!!!");
 };
 
-
 $(document).ready(function(){
-		
-		$("button").click(function(){
-			$("body").load("text/pag3.html");
-			$("body").one("mousemove",function(){
-				iniciar();		
-			})	 
-	})
-
-});
-
-$(document).ready(function(){
+        $("button").click(function(){
+            $("body").load("text/pag3.html");
+            $("body").one("mousemove",function(){
+                iniciar();      
+            })   
+        })
     	$("li").addClass("enable");	
 	
         $(".card").on("click",function(evt){
@@ -176,18 +170,12 @@ $(document).ready(function(){
 	                }   
 	      }          
         });
-    
+        $(".restart").click(function(){ 
+            cc = 0;
+            aa = 0;
+            iniciar();
+        })
        
 		
 });
            
-$(document).ready(function(){
-
-	$(".restart").click(function(){	
-		cc = 0;
-		aa = 0;
-		iniciar();
-	})
-
-});
- 
