@@ -1,9 +1,4 @@
 /*
- * Create a list that holds all of your cards
- */
-
-
-/*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
@@ -24,7 +19,7 @@ function shuffle(array) {
 
     return array;
 }
-
+/*reiniciliza o jogo quando o botao é acionado.*/
 function iniciar(){
 	ii = 0;
 	yourArray = [];
@@ -75,7 +70,11 @@ var myFunc = function(event){
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-
+/*variaveis relacianadas ao funcionamento do código. count é contador de quantos vezes o usuario clica nas cartas
+aa é contador que garante a msg de parabenizacao quando o usuario acerta todos os pares em sequencia. ii define o index do array
+das figuras das cartas. ee adiciona um numero aos ids gerados para localizar as cartas clicadas e trocar seus estilo.
+vv é um contador que permite que as estrelas sejam remvidas conforme os cliques do usuário. yourArray cria o array que contém
+as figuras das cartas. Shuf gera um array embaralhado pela função shuffle. cc adiciona o numero de cliques do usuario no header.*/
 var count = 0;
 var aa = 0;
 var ii = 0;
@@ -86,14 +85,17 @@ var	shuf = [];
 var cc = 0;
 var x = 1;
 var atributo = {};
+/*funcao que gera um alerta*/
 var explode = function(){
     alert("Não desista, continue tentando!!!");
 };
+/*funcao que gera um alerta*/
  var congrat = function(){
     alert("Parabéns, você demonstrou que tem ótima memória!!!");
 };
 
 $(document).ready(function(){
+        /*Quando o usuario finaliza o jogo, ao clicar o botao ok o site volta a pagina inicial e reinicializa o jogo.*/
         $("button").click(function(){
             $("body").load("text/pag3.html");
             $("body").one("mousemove",function(){
@@ -101,13 +103,14 @@ $(document).ready(function(){
             })   
         })
     	$("li").addClass("enable");	
-	
+	    /*ao clicar na carta, uma série de eventos são acionados de acordo com o código abaixo*/
         $(".card").on("click",function(evt){
          if ($(evt.target).hasClass("enable") == true){	
          	count++
         	evt.stopPropagation();
         	cc++;
         	$(".moves").addClass("moves").text(cc);
+            /*Faz com que as ações sejam feitas aos pares. Caso haja matching um determinada ocorrência do contrário, outra*/
             if(count < 3){ 
             	$(evt.target).attr("id", "link"+ee);
             	
@@ -117,6 +120,7 @@ $(document).ready(function(){
                 atributo[ii]=atri;
                 ii++;
                 ee++;
+                /*permite que usuario de continuidade no jogo caso as cartas sejam iguais*/
                 if ( count == 2 && atributo[ii -1] == atributo[ii - 2]){
                     count = 0;
                     aa++;
@@ -132,14 +136,14 @@ $(document).ready(function(){
                  
                     } 
                 
-
+                /*Caso não haja o matching, as cartas são fechadas e o usuário da continuidade no jogo.*/
                 } else if (count == 2) {
                    $("#"+"link"+(ee-1)).removeClass("open").addClass("wrong");	
                    $("#"+"link"+(ee-2)).removeClass("open").addClass("wrong");
                    $(".wrong").effect("shake");
                    $(".card").css("cursor", "none");
                    aa = 0;
-                                                                    
+                   /*Está função permite que usuário tem a capacidade de ver as cartas selecionadas por 0.5 segundos antes que seja fechada.*/                                                 
                    setTimeout(function(){ 
                    	$(".wrong").addClass("enable");
                     $(".right").addClass("enable");
@@ -155,9 +159,11 @@ $(document).ready(function(){
                     },500);
                   }          
             }
+            /*diminui os número de estrelas a medida que o usário clica nas cartas.*/
             if (cc % 10 == 0){
 	                   $("#star"+vv).removeClass();
 	                   vv++;
+                       /*Caso o usuario atinja o numero limite de 30 jogadas o jogo é reinicializado.*/
 	                   if (vv == 4){
 	                   	$(".stars").find("i").addClass("fa fa-star");
 	                   	vv = 1;
@@ -170,6 +176,7 @@ $(document).ready(function(){
 	                }   
 	      }          
         });
+        /*reinicializa o jogo quando o usuário clica no botão.*/
         $(".restart").click(function(){ 
             cc = 0;
             aa = 0;
