@@ -31,6 +31,8 @@ function iniciar(){
     $('.wrong').removeClass('wrong').addClass('card');
     $(".right").addClass("enable");
     $('.right').removeClass('right').addClass('card');
+    $(".card").addClass("enable");
+    $(".card").removeAttr("id");
     $(".stars").find("i").addClass("fa fa-star");
     $(".moves").addClass("moves").text("3");
 	$("li").each(function(){
