@@ -61,6 +61,14 @@ var desligar = function(x){
 var myFunc = function(event){
 	event.stopPropagation();
 }
+
+function timer(){
+        var start = new Date;
+        timerptr =  setInterval(function(){
+            $(".clock").text(Math.round((new Date - start) / 1000),0)
+        }, 1000);
+
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -87,7 +95,6 @@ var	shuf = [];
 var cc = 0;
 var x = 1;
 var atributo = {};
-var start = new Date;
 /*funcao que gera um alerta*/
 var explode = function(){
     alert("Não desista, continue tentando!!!");
@@ -98,15 +105,14 @@ var explode = function(){
 };
 
 $(document).ready(function(){
-
-        setInterval(function(){
-            $(".clock").text(Math.round((new Date - start) / 1000),0)
-        }, 1000);
+        iniciar();
+        timer();
         /*Quando o usuario finaliza o jogo, ao clicar o botao ok o site volta a pagina inicial e reinicializa o jogo.*/
         $("button").click(function(){
             $("body").load("text/pag3.html");
             $("body").one("mousemove",function(){
-                iniciar();      
+                iniciar(); 
+                timer();    
             })   
         })
     	$("li").addClass("enable");	
@@ -178,6 +184,8 @@ $(document).ready(function(){
         $(".restart").click(function(){ 
             cc = 0;
             aa = 0;
+            clearInterval(timerptr);
+            timer();
             iniciar();
         })
        
