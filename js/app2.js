@@ -34,7 +34,7 @@ function iniciar(){
     $(".card").addClass("enable");
     $(".card").removeAttr("id");
     $(".stars").find("i").addClass("fa fa-star");
-    $(".moves").addClass("moves").text("3");
+    $(".moves").addClass("moves").text("0");
 	$("li").each(function(){
 		if($(this).hasClass("card")){
 			yourArray.push($(this).children("i").prop("class"));
