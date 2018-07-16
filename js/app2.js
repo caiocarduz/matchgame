@@ -161,9 +161,11 @@ $(document).ready(function(){
             }
             /*diminui os número de estrelas a medida que o usário clica nas cartas.*/
             if (cc % 10 == 0){
+                if (vv < 3){
 	                   $("#star"+vv).removeClass();
 	                   vv++;
-	                }   
+	                } 
+                }  
 	      }          
         });
         /*reinicializa o jogo quando o usuário clica no botão.*/
