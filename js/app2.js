@@ -87,6 +87,7 @@ var	shuf = [];
 var cc = 0;
 var x = 1;
 var atributo = {};
+var start = new Date;
 /*funcao que gera um alerta*/
 var explode = function(){
     alert("Não desista, continue tentando!!!");
@@ -97,6 +98,10 @@ var explode = function(){
 };
 
 $(document).ready(function(){
+
+        setInterval(function(){
+            $(".clock").text(Math.round((new Date - start) / 1000),0)
+        }, 1000);
         /*Quando o usuario finaliza o jogo, ao clicar o botao ok o site volta a pagina inicial e reinicializa o jogo.*/
         $("button").click(function(){
             $("body").load("text/pag3.html");
