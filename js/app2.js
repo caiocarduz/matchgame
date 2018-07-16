@@ -155,7 +155,6 @@ $(document).ready(function(){
                    /*Está função permite que usuário tem a capacidade de ver as cartas selecionadas por 0.5 segundos antes que seja fechada.*/                                                 
                    setTimeout(function(){ 
                    	$(".wrong").addClass("enable");
-                    $(".right").addClass("enable");
                     $(".wrong").removeAttr("id");
                     $('.wrong').removeClass('show').addClass('card');
                     $('.wrong').removeClass('wrong').addClass('card');
