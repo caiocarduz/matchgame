@@ -144,7 +144,6 @@ $(document).ready(function(){
                    $("#"+"link"+(ee-2)).removeClass("open").addClass("wrong");
                    $(".wrong").effect("shake");
                    $(".card").css("cursor", "none");
-                   aa = 0;
                    /*Está função permite que usuário tem a capacidade de ver as cartas selecionadas por 0.5 segundos antes que seja fechada.*/                                                 
                    setTimeout(function(){ 
                    	$(".wrong").addClass("enable");
