@@ -150,10 +150,9 @@ $(document).ready(function(){
                    	$(".wrong").addClass("enable");
                     $(".right").addClass("enable");
                     $(".wrong").removeAttr("id");
+                    $('.wrong').removeClass('show').addClass('card');
                     $('.wrong').removeClass('wrong').addClass('card');
-                    $('.show').removeClass('show').addClass('card');
                     $('.open').removeClass('open').addClass('card');
-                    $('.right').removeClass('right').addClass('card');
                     $(".wrong").effect("shake");
                    
                     $(".card").css("cursor", "context-menu");
