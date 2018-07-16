@@ -69,6 +69,14 @@ function timer(){
         }, 1000);
 
 }
+
+function reinicializar(){
+     cc = 0;
+     aa = 0;
+     clearInterval(timerptr);
+     timer();
+     iniciar();
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -103,7 +111,6 @@ var explode = function(){
  var congrat = function(){
     alert("Parabéns, você demonstrou que tem ótima memória!!!");
 };
-
 $(document).ready(function(){
         iniciar();
         timer();
@@ -177,11 +184,7 @@ $(document).ready(function(){
         });
         /*reinicializa o jogo quando o usuário clica no botão.*/
         $(".restart").click(function(){ 
-            cc = 0;
-            aa = 0;
-            clearInterval(timerptr);
-            timer();
-            iniciar();
+            reinicializar();    
         })
        
 		
