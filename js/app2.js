@@ -110,10 +110,6 @@ $(document).ready(function(){
         /*Quando o usuario finaliza o jogo, ao clicar o botao ok o site volta a pagina inicial e reinicializa o jogo.*/
         $("button").click(function(){
             $("body").load("text/pag3.html");
-            $("body").one("mousemove",function(){
-                iniciar(); 
-                timer();    
-            })   
         })
     	$("li").addClass("enable");	
 	    /*ao clicar na carta, uma série de eventos são acionados de acordo com o código abaixo*/
