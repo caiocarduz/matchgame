@@ -140,6 +140,7 @@ $(document).ready(function(){
                     if (aa === 8){
                        aa = 0;
                        $("body").load("text/pag2.html");
+                       $(".contmov").addClass('contmov').text(cc);
                  
                     } 
                 
