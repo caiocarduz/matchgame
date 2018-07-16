@@ -163,16 +163,6 @@ $(document).ready(function(){
             if (cc % 10 == 0){
 	                   $("#star"+vv).removeClass();
 	                   vv++;
-                       /*Caso o usuario atinja o numero limite de 30 jogadas o jogo é reinicializado.*/
-	                   if (vv == 4){
-	                   	$(".stars").find("i").addClass("fa fa-star");
-	                   	vv = 1;
-	                   	cc = 0;
-	                   	iniciar();                   	
-	                   	aa = 0;
-	                   	$(".moves").addClass("moves").text(cc);
-	                    
-	                   }
 	                }   
 	      }          
         });
