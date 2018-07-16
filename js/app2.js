@@ -77,6 +77,21 @@ function reinicializar(){
      timer();
      iniciar();
 }
+
+function fechaCartas(){
+    setTimeout(function(){ 
+                    $(".wrong").addClass("enable");
+                    $(".wrong").removeAttr("id");
+                    $('.wrong').removeClass('show').addClass('card');
+                    $('.wrong').removeClass('wrong').addClass('card');
+                    $('.open').removeClass('open').addClass('card');
+                    $(".wrong").effect("shake");
+                   
+                    $(".card").css("cursor", "context-menu");
+                    count= 0;
+                    },500);
+
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -159,18 +174,8 @@ $(document).ready(function(){
                    $("#"+"link"+(ee-2)).removeClass("open").addClass("wrong");
                    $(".wrong").effect("shake");
                    $(".card").css("cursor", "none");
-                   /*Está função permite que usuário tem a capacidade de ver as cartas selecionadas por 0.5 segundos antes que seja fechada.*/                                                 
-                   setTimeout(function(){ 
-                   	$(".wrong").addClass("enable");
-                    $(".wrong").removeAttr("id");
-                    $('.wrong').removeClass('show').addClass('card');
-                    $('.wrong').removeClass('wrong').addClass('card');
-                    $('.open').removeClass('open').addClass('card');
-                    $(".wrong").effect("shake");
-                   
-                    $(".card").css("cursor", "context-menu");
-                    count= 0;
-                    },500);
+                   /*Está função permite que usuário tem a capacidade de ver as cartas selecionadas por 0.5 segundos antes que seja fechada.*/ 
+                   fechaCartas();                                                
                   }          
             }
             /*diminui os número de estrelas a medida que o usário clica nas cartas.*/
