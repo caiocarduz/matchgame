@@ -64,7 +64,9 @@ var myFunc = function(event){
 
 function timer(){
         var start = new Date;
-        timerptr =  setInterval(function(){
+        setInterval(function(){
+            ++counti
+            counti2 = counti;
             $(".clock").text(Math.round((new Date - start) / 1000),0)
         }, 1000);
 
@@ -92,6 +94,30 @@ function fechaCartas(){
                     },500);
 
 }
+
+function endGame(){
+     setTimeout(function() {
+            // $(this).find('li').hide();
+            swal({
+                title: 'Parabéns',
+                type: 'success',
+                text: 'Você ganhou o jogo em ' + cc + ' Movimentos e em ' + counti2 + ' segundos.',
+                allowOutsideClick: true,
+                buttons: {
+                    cancel: false,
+                    confirm: true,
+                },
+                cancelButtonColor: '#FF0000'
+            }).then(function() {
+                location.reload();
+            }, function(dismiss) {
+                console.log('Yes');
+            });
+
+        
+    }, 300);
+
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -108,6 +134,8 @@ aa é contador que garante a msg de parabenizacao quando o usuario acerta todos 
 das figuras das cartas. ee adiciona um numero aos ids gerados para localizar as cartas clicadas e trocar seus estilo.
 vv é um contador que permite que as estrelas sejam remvidas conforme os cliques do usuário. yourArray cria o array que contém
 as figuras das cartas. Shuf gera um array embaralhado pela função shuffle. cc adiciona o numero de cliques do usuario no header.*/
+var counti2 = 0;
+var counti = 0;
 var count = 0;
 var aa = 0;
 var ii = 0;
@@ -130,9 +158,9 @@ $(document).ready(function(){
         iniciar();
         timer();
         /*Quando o usuario finaliza o jogo, ao clicar o botao ok o site volta a pagina inicial e reinicializa o jogo.*/
-        $("button").click(function(){
+        /*$("button").click(function(){
             $("body").load("text/pag3.html");
-        })
+        })*/
     	$("li").addClass("enable");	
 	    /*ao clicar na carta, uma série de eventos são acionados de acordo com o código abaixo*/
         $(".card").on("click",function(evt){
@@ -163,8 +191,7 @@ $(document).ready(function(){
                     $(".right").removeAttr("id");                                     
                     if (aa === 8){
                        aa = 0;
-                       $("body").load("text/pag2.html");
-                       $(".contmov").addClass('contmov').text(cc);
+                       endGame();
                  
                     } 
                 
