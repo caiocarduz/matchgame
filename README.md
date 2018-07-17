@@ -29,5 +29,10 @@ COMO JOGAR
 DEPENDÊNCIAS
 	-css
 	-img
-	-js
-	-text
+	-js 
+	-jQuery : https://code.jquery.com/ui/1.12.1/jquery-ui.js
+	-Font Awesome : https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+	-Google Fonts : https://fonts.googleapis.com/css?family=Coda
+	-SweetAlert : https://unpkg.com/sweetalert/dist/sweetalert.min.js
+
+  
